@@ -16,7 +16,7 @@ const FormSchema = z
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"],
-    message: "Passwords do not match",
+    message: "Incorrect password",
   })
 const SignupForm = () => {
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -80,7 +80,7 @@ return (
         name="confirmPassword"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Re-Enter your password</FormLabel>
+            <FormLabel>Confirm Password</FormLabel>
             <FormControl>
               <Input placeholder="Re-Enter your password" {...field} />
             </FormControl>
@@ -91,10 +91,8 @@ return (
       </div>
       <Button className="w-full mt-6" type="submit">Sign up</Button>
     </form>
-    
-      
       <p className='text-center text-sm text-gray-600 mt-2'>
-        Already have an account, please&nbsp;
+        Already have an account? &nbsp;
         <Link className='text-blue-500 hover:underline' href='/sign-in'>
           Sign in
         </Link>

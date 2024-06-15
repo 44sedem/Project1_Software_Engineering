@@ -10,7 +10,6 @@ const AuthLayout: FC<AuthLayoutProps> = ({children}) => {
       <Navbar />
       {children}
     </div>
-    
   );
 };
 
